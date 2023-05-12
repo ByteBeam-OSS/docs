@@ -1,0 +1,6 @@
+site_name: SexyCoders Docs
+nav:
+  - Home: index.md
+  - API: 
+    - Authentication: api/authentication.md
+
