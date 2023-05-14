@@ -1,4 +1,4 @@
-# Authentication and API Usage Documentation
+# Token retrieval and Parsing
 
 ## Getting a Token
 
@@ -40,9 +40,10 @@ With the token, you can post to the API using the following command:
 ```bash
 curl -X POST -H "Content-Type: application/json" \
      -d '{"token": "your_token_here"}' \
-     https://api.sexycoders.org/path_to_endpoint
+     https://your_api/path_to_endpoint
 ```
 
-Replace "your_token_here" with the token you obtained and use the correct endpoint path.
+Replace "your_api/path_to_endpoint" with the actual api endpoint location and "your_token_here" 
+with the token you obtained use the correct endpoint path.
 
 
