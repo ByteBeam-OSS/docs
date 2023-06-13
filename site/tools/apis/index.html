@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Token Verification - SexyCoders Docs</title>
+        <title>APIs - SexyCoders Docs</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -36,16 +36,16 @@
                             <li class="navitem">
                                 <a href="../.." class="nav-link">Home</a>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../authentication/" class="dropdown-item">Authentication</a>
+    <a href="../../api/authentication/" class="dropdown-item">Authentication</a>
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active">Token Verification</a>
+    <a href="../../api/verify/" class="dropdown-item">Token Verification</a>
 </li>
                                 </ul>
                             </li>
@@ -62,28 +62,28 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../../tools/docker/" class="dropdown-item">Docker</a>
+    <a href="../docker/" class="dropdown-item">Docker</a>
 </li>
                                     
 <li>
-    <a href="../../tools/mongodb/" class="dropdown-item">MongoDB</a>
+    <a href="../mongodb/" class="dropdown-item">MongoDB</a>
 </li>
                                     
 <li>
-    <a href="../../tools/apis/" class="dropdown-item">APIs</a>
+    <a href="./" class="dropdown-item active">APIs</a>
 </li>
                                     
 <li>
-    <a href="../../tools/vue/" class="dropdown-item">Vue</a>
+    <a href="../vue/" class="dropdown-item">Vue</a>
 </li>
                                     
 <li>
-    <a href="../../tools/security/" class="dropdown-item">Security</a>
+    <a href="../security/" class="dropdown-item">Security</a>
 </li>
                                 </ul>
                             </li>
@@ -96,12 +96,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../authentication/" class="nav-link">
+                                <a rel="prev" href="../mongodb/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../../for_developers/helpers/" class="nav-link">
+                                <a rel="next" href="../vue/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -123,17 +123,33 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#authentication-and-api-usage" class="nav-link">Authentication and API Usage</a>
+            <li class="nav-item" data-level="1"><a href="#apis-nodejs-and-expressjs-documentation" class="nav-link">APIs, Node.js and Express.js Documentation</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#token-verification" class="nav-link">Token Verification</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#formatted-response" class="nav-link">Formatted response</a>
+            <li class="nav-item" data-level="2"><a href="#introduction" class="nav-link">Introduction </a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#endpoint-listing" class="nav-link">Endpoint listing</a>
+            <li class="nav-item" data-level="2"><a href="#what-is-an-api" class="nav-link">What is an API? </a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#nodejs-in-cloud" class="nav-link">Node.js in Cloud </a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#expressjs-in-cloud" class="nav-link">Express.js in Cloud </a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#modern-cloud-solutions-with-nodejs-and-expressjs" class="nav-link">Modern Cloud Solutions with Node.js and Express.js </a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#conclusion" class="nav-link">Conclusion </a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#read-more" class="nav-link">Read More</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -144,43 +160,39 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="authentication-and-api-usage">Authentication and API Usage</h1>
-<h2 id="token-verification">Token Verification</h2>
-<pre><code class="language-bash">curl -X POST \
-  -H &quot;Content-Type: application/x-www-form-urlencoded&quot; \
-  -d &quot;client_id=&lt;your_client_id&gt;&quot; \
-  -d &quot;client_secret=&lt;your_client_secret&gt;&quot;\
-  -d &quot;token=&lt;token_value&gt;&quot; \
-  https://sso.sexycoders.org/auth/realms/&lt;your_realm&gt;/protocol/openid-connect/token/introspect
-</code></pre>
-<p>This will verify if the token is active or not by returning:</p>
-<pre><code class="language-bash">HUGE PILE OF JSON SHIT
-</code></pre>
-<p>or </p>
-<pre><code class="language-bash">{&quot;active&quot;:false}
-</code></pre>
-<p>You can then procceed to the execution or not of the rest of the code.</p>
-<h2 id="formatted-response">Formatted response</h2>
-<p>As you might notice by running the above,it returns a lot of pretty much useless 💩.</p>
-<p>We can get a formatted and usable return by posting the userinfo endpoint</p>
-<pre><code class="language-bash">https://sso.sexycoders.org/auth/realms/&lt;your_realm&gt;/protocol/openid-connect/userinfo
-</code></pre>
-<p>The response for an active token will then look like this:</p>
-<pre><code class="language-bash">{
-  &quot;sub&quot;:&quot;...&quot;,
-  &quot;email_verified&quot;:true,
-  &quot;preferred_username&quot;:&quot;username&quot;,
-  &quot;email&quot;:&quot;email&quot;
-}
-</code></pre>
-<p>A lot better aint it ?</p>
-<p>This will also include fields like Name or Last Name if present in the users profile.</p>
-<h2 id="endpoint-listing">Endpoint listing</h2>
-<p>We can find the list of available endpoints by using</p>
-<pre><code class="language-bash">https://sso.sexycoders.org/auth/realms/&lt;your_realm&gt;/.well-known/openid-configuration
-</code></pre>
-<p>Response should be a json file with the openid config of the server.
-It will also contain the available endpoints.</p></div>
+<h1 id="apis-nodejs-and-expressjs-documentation">APIs, Node.js and Express.js Documentation</h1>
+<h2 id="introduction">Introduction <a name="introduction"></a></h2>
+<p>This documentation is intended to provide a comprehensive understanding of how APIs, Node.js, and Express.js are utilized in modern cloud solutions. The goal is to shed light on why these technologies have become pivotal tools for developers working with cloud infrastructure.</p>
+<h2 id="what-is-an-api">What is an API? <a name="what-is-an-api"></a></h2>
+<p>An Application Programming Interface (API) is a set of rules and protocols for building and interacting with software applications. In the context of cloud computing, APIs enable the interaction between different software modules and components, often operating across distributed systems.</p>
+<h2 id="nodejs-in-cloud">Node.js in Cloud <a name="nodejs-in-cloud"></a></h2>
+<p>Node.js has become a favored technology in the cloud for several reasons. Its non-blocking, event-driven architecture makes it particularly well-suited for cloud applications which often need to handle a large number of simultaneous connections with high efficiency. Moreover, Node.js's JavaScript basis makes it universal and easy to adopt.</p>
+<h2 id="expressjs-in-cloud">Express.js in Cloud <a name="expressjs-in-cloud"></a></h2>
+<p>Express.js, often used in conjunction with Node.js, is a lightweight, fast, unopinionated web application framework that provides a simple API for building scalable server-side applications. In the cloud, Express.js allows for quick development of microservices, APIs, and other server-side logic, which can be deployed and scaled independently.</p>
+<h2 id="modern-cloud-solutions-with-nodejs-and-expressjs">Modern Cloud Solutions with Node.js and Express.js <a name="modern-cloud-solutions-with-nodejs-and-expressjs"></a></h2>
+<p>Modern cloud solutions leverage the power of Node.js and Express.js to build scalable and resilient systems. They help create applications that are able to communicate seamlessly with various services, and efficiently handle large numbers of connections. Moreover, the simplicity and minimalism of Express.js make it ideal for microservice architectures, which are now a standard in modern cloud solutions.</p>
+<h2 id="conclusion">Conclusion <a name="conclusion"></a></h2>
+<p>In this era of digital transformation, Node.js and Express.js have emerged as key technologies in the world of cloud computing. By making server-side development simpler, more efficient, and scalable, these technologies are powering the backbone of many modern cloud solutions.</p>
+<h2 id="read-more">Read More</h2>
+<h3 id="general">General</h3>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction">Mozilla Developer Network - API Basics</a></li>
+</ul>
+<h3 id="nodejs">NodeJS</h3>
+<ul>
+<li><a href="https://nodejs.org/en/docs/">Node.js Official Documentation</a></li>
+<li><a href="https://www.freecodecamp.org/news/what-exactly-is-node-js-and-why-should-you-use-it-8043a3624e3c/">What Exactly is Node.js and Why Should You Use It?</a></li>
+<li><a href="https://nodejs.org/en/about">About Node.js</a></li>
+<li><a href="https://scalexcloud.com/blog/nodejs-development-a-comprehensive-guide">Node.js Development: A Comprehensive Guide</a></li>
+<li><a href="https://www.namasteui.com/7-reasons-why-the-popularity-of-node-js-has-increased-immensely/">7 Reasons Why the Popularity of Node.js has Increased Immensely</a></li>
+</ul>
+<h3 id="express">Express</h3>
+<ul>
+<li><a href="https://expressjs.com/">Express.js Official Documentation</a></li>
+<li><a href="https://stackoverflow.com/questions/12616153/what-is-express-js">What is Express.js?</a></li>
+<li><a href="https://www.besanttechnologies.com/what-is-expressjs">What is Express.js?</a></li>
+<li><a href="https://www.techomoro.com/what-are-the-benefits-of-using-express-js-for-backend-development/">Benefits of Using Express.js for Backend Development</a></li>
+</ul></div>
             </div>
         </div>
 

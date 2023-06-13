@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Security - SexyCoders Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">SexyCoders Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../api/authentication/" class="dropdown-item">Authentication</a>
+</li>
+                                    
+<li>
+    <a href="../../api/verify/" class="dropdown-item">Token Verification</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">For Developers <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../for_developers/helpers/" class="dropdown-item">Helper Commands</a>
+</li>
+                                    
+<li>
+    <a href="../../for_developers/versioning/" class="dropdown-item">Names and Versioning</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../docker/" class="dropdown-item">Docker</a>
+</li>
+                                    
+<li>
+    <a href="../mongodb/" class="dropdown-item">MongoDB</a>
+</li>
+                                    
+<li>
+    <a href="../apis/" class="dropdown-item">APIs</a>
+</li>
+                                    
+<li>
+    <a href="../vue/" class="dropdown-item">Vue</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Security</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../vue/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#security" class="nav-link">Security</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#introduction" class="nav-link">Introduction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#server-architecture" class="nav-link">Server Architecture</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#wireguard" class="nav-link">WireGuard</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#docker-swarm" class="nav-link">Docker Swarm</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#transport-layer-security-tls" class="nav-link">Transport Layer Security (TLS)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#conclusion" class="nav-link">Conclusion</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#read-more" class="nav-link">Read More</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="security">Security</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This documentation provides a comprehensive overview of our company's server architecture, utilizing WireGuard for server communication, Docker Swarm for service orchestration, and Transport Layer Security (TLS) for secure external connections. This infrastructure incorporates state-of-the-art technologies to ensure high availability, security, and scalability.</p>
+<h2 id="server-architecture">Server Architecture</h2>
+<p>Our architecture consists of three servers interconnected via a VPN, establishing a robust platform for running distributed services. This setup facilitates high resilience, distributing the workload across multiple nodes, allowing the system to remain functional even if one of the servers fails.</p>
+<p>The servers communicate via WireGuard, a secure, modern, and efficient VPN protocol. Docker Swarm manages the services running on these servers, ensuring they function efficiently and reliably. External connections to these services are secured using TLS, guaranteeing that all transmitted data remains confidential and secure.</p>
+<h2 id="wireguard">WireGuard</h2>
+<p>WireGuard is an open-source VPN designed as a general-purpose VPN, suitable for various circumstances, from embedded interfaces to supercomputers. It uses state-of-the-art cryptography like the Noise protocol framework, Curve25519, ChaCha20, Poly1305, BLAKE2, SipHash24, HKDF, ensuring top-level security.</p>
+<p>Noteworthy security features of WireGuard include:</p>
+<ol>
+<li>
+<p><strong>Cryptographically Sound:</strong> WireGuard leverages cutting-edge cryptographic protocols to ensure secure, fast, and reliable connections.</p>
+</li>
+<li>
+<p><strong>Shorter Keys:</strong> WireGuard employs shorter keys compared to other VPN protocols, leading to reduced complexity and faster key generation.</p>
+</li>
+<li>
+<p><strong>Perfect Forward Secrecy:</strong> WireGuard supports Perfect Forward Secrecy (PFS), securing past communication even if a private key is compromised because it uses ephemeral keys for each connection.</p>
+</li>
+<li>
+<p><strong>Denial of Service (DoS) Resistance:</strong> WireGuard's design minimizes data exchanged during connection establishment, reducing the potential for DoS attacks.</p>
+</li>
+<li>
+<p><strong>IP Address Hiding:</strong> By default, WireGuard does not include the originating IP address in the data packets, hiding the traffic's source.</p>
+</li>
+</ol>
+<h2 id="docker-swarm">Docker Swarm</h2>
+<p>Docker Swarm, a container orchestration tool by Docker, Inc., allows us to manage a cluster of servers as a single virtual server. It enables easy deployment, scalability, and high availability of applications.</p>
+<p>Here are key points about our Docker Swarm setup:</p>
+<ol>
+<li>
+<p><strong>Services and Stacks:</strong> We organize related services into stacks, each with its own <code>docker-compose.yml</code> file, facilitating easy deployment and management of groups of related services.</p>
+</li>
+<li>
+<p><strong>Load Balancing:</strong> Docker Swarm natively supports load balancing of requests between different instances of a service.</p>
+</li>
+<li>
+<p><strong>Service Discovery:</strong> Docker's internal DNS server allows services within the Swarm to communicate with each other by name, eliminating the need to hard-code IP addresses.</p>
+</li>
+<li>
+<p><strong>Scaling:</strong> We can easily scale up a service by increasing the number of instances (replicas). Docker Swarm will distribute the new instances across the Swarm nodes.</p>
+</li>
+<li>
+<p><strong>Rolling Updates and Rollbacks:</strong> Docker Swarm supports rolling updates, allowing us to deploy a new version of a service without downtime. If something goes wrong, we can roll back to the previous version.</p>
+</li>
+</ol>
+<p>Docker Swarm also offers various security features:</p>
+<ol>
+<li>
+<p><strong>TLS for Nodes:</strong> Docker Swarm uses mutual TLS for all node communication, ensuring all communication between nodes is encrypted and authenticated.</p>
+</li>
+<li>
+<p><strong>Security Scanning and Signed Images:</strong> Docker Security Scanning and Docker Content Trust identify and mitigate vulnerabilities in the application layers of our Docker images, and prevent tampered images from being deployed.</p>
+</li>
+<li>
+<p><strong>Service Isolation:</strong> Docker Swarm enforces network isolation, so each service deployed on the swarm can only communicate with other services via explicitly defined network paths.</p>
+</li>
+<li>
+<p><strong>Secret Management:</strong> Docker Swarm provides secure storage of secrets that can be used by services. Secrets are encrypted during transit and at rest, and only shared with services that specifically request them.</p>
+</li>
+</ol>
+<p>Docker Swarm's orchestration capabilities ensure high availability, which is a crucial aspect of our overall security strategy:</p>
+<ol>
+<li>
+<p><strong>Rolling Updates:</strong> Docker Swarm performs rolling updates to services, where new versions of services are gradually rolled out. This not only ensures continuous availability of services, but also means that security updates can be applied without any downtime. If an update fails, Docker Swarm automatically rolls back, reducing the risk of exposure to vulnerabilities.</p>
+</li>
+<li>
+<p><strong>Service Rescheduling:</strong> In the event of a node becoming unavailable, Docker Swarm automatically reschedules the services running on that node to other available nodes. This functionality ensures continuous service availability, reducing the potential for attackers to exploit periods of downtime.</p>
+</li>
+<li>
+<p><strong>Load Balancing:</strong> Docker Swarm has built-in load balancing that distributes service requests evenly among all instances. This not only improves overall service reliability but also aids in mitigating Distributed Denial of Service (DDoS) attacks by distributing traffic.</p>
+</li>
+<li>
+<p><strong>Scaling:</strong> Docker Swarm allows for horizontal scaling, where additional instances of a service can be quickly started to handle increased load. This means that in the event of a sudden traffic surge, perhaps due to a DDoS attack, new instances can be deployed rapidly to maintain service availability. These new instances are automatically balanced across the nodes in the swarm, helping to manage the load and maintain uptime.</p>
+</li>
+</ol>
+<h2 id="transport-layer-security-tls">Transport Layer Security (TLS)</h2>
+<p>Transport Layer Security (TLS) secures connections over a network by encrypting the data sent between an app and its server. We use Let's Encrypt to generate free TLS certificates for each of our services, which are automatically renewed before expiry, ensuring our connections remain secure always.</p>
+<p>Here are a few key points about our TLS setup:</p>
+<ol>
+<li>
+<p><strong>Automated Certificate Management:</strong> We use the Certbot tool to automatically issue and renew Let's Encrypt certificates.</p>
+</li>
+<li>
+<p><strong>Strict Transport Security:</strong> We use the HTTP Strict Transport Security (HSTS) policy to instruct browsers to always use HTTPS, eliminating the risk of unsecured connections.</p>
+</li>
+<li>
+<p><strong>Forward Secrecy:</strong> Our TLS configuration supports forward secrecy, meaning that if a session key is compromised, it can't be used to decrypt past or future sessions.</p>
+</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>Our company's server architecture is designed to provide a secure, robust, and scalable platform for running our services. With WireGuard, Docker Swarm, and TLS at the heart of our infrastructure, we can maintain high availability and security, ensuring our system is resilient to failures, prepared for scaling as needed, and robust against potential security threats.</p>
+<p>Should you have any questions or need further clarification on any part of the system, please don't hesitate to contact the IT department. We're here to help!</p>
+<hr />
+<h2 id="read-more">Read More</h2>
+<ul>
+<li><a href="https://docs.docker.com/engine/swarm/secrets/">Docker Secrets Management</a></li>
+<li><a href="https://docs.docker.com/develop/security-best-practices/">Docker Security Best Practices</a></li>
+<li><a href="https://sweetcode.io/guide-swarm-security/">Guide to Docker Swarm Security</a></li>
+<li><a href="https://docs.docker.com/engine/swarm/how-swarm-mode-works/pki/">How Swarm Mode Works - PKI</a></li>
+<li><a href="https://docs.docker.com/engine/swarm/">Docker Swarm Mode Overview</a></li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

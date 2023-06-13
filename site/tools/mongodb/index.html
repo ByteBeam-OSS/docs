@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Token Verification - SexyCoders Docs</title>
+        <title>MongoDB - SexyCoders Docs</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -36,16 +36,16 @@
                             <li class="navitem">
                                 <a href="../.." class="nav-link">Home</a>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../authentication/" class="dropdown-item">Authentication</a>
+    <a href="../../api/authentication/" class="dropdown-item">Authentication</a>
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active">Token Verification</a>
+    <a href="../../api/verify/" class="dropdown-item">Token Verification</a>
 </li>
                                 </ul>
                             </li>
@@ -62,28 +62,28 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../../tools/docker/" class="dropdown-item">Docker</a>
+    <a href="../docker/" class="dropdown-item">Docker</a>
 </li>
                                     
 <li>
-    <a href="../../tools/mongodb/" class="dropdown-item">MongoDB</a>
+    <a href="./" class="dropdown-item active">MongoDB</a>
 </li>
                                     
 <li>
-    <a href="../../tools/apis/" class="dropdown-item">APIs</a>
+    <a href="../apis/" class="dropdown-item">APIs</a>
 </li>
                                     
 <li>
-    <a href="../../tools/vue/" class="dropdown-item">Vue</a>
+    <a href="../vue/" class="dropdown-item">Vue</a>
 </li>
                                     
 <li>
-    <a href="../../tools/security/" class="dropdown-item">Security</a>
+    <a href="../security/" class="dropdown-item">Security</a>
 </li>
                                 </ul>
                             </li>
@@ -96,12 +96,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../authentication/" class="nav-link">
+                                <a rel="prev" href="../docker/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../../for_developers/helpers/" class="nav-link">
+                                <a rel="next" href="../apis/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -123,17 +123,21 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#authentication-and-api-usage" class="nav-link">Authentication and API Usage</a>
+            <li class="nav-item" data-level="1"><a href="#mongodb-the-backbone-of-our-data-management-systems" class="nav-link">MongoDB: The Backbone of Our Data Management Systems</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#token-verification" class="nav-link">Token Verification</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#formatted-response" class="nav-link">Formatted response</a>
+            <li class="nav-item" data-level="2"><a href="#introduction" class="nav-link">Introduction</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#endpoint-listing" class="nav-link">Endpoint listing</a>
+            <li class="nav-item" data-level="2"><a href="#why-mongodb" class="nav-link">Why MongoDB?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#conclusion" class="nav-link">Conclusion</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#read-more" class="nav-link">Read More</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -144,43 +148,32 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="authentication-and-api-usage">Authentication and API Usage</h1>
-<h2 id="token-verification">Token Verification</h2>
-<pre><code class="language-bash">curl -X POST \
-  -H &quot;Content-Type: application/x-www-form-urlencoded&quot; \
-  -d &quot;client_id=&lt;your_client_id&gt;&quot; \
-  -d &quot;client_secret=&lt;your_client_secret&gt;&quot;\
-  -d &quot;token=&lt;token_value&gt;&quot; \
-  https://sso.sexycoders.org/auth/realms/&lt;your_realm&gt;/protocol/openid-connect/token/introspect
-</code></pre>
-<p>This will verify if the token is active or not by returning:</p>
-<pre><code class="language-bash">HUGE PILE OF JSON SHIT
-</code></pre>
-<p>or </p>
-<pre><code class="language-bash">{&quot;active&quot;:false}
-</code></pre>
-<p>You can then procceed to the execution or not of the rest of the code.</p>
-<h2 id="formatted-response">Formatted response</h2>
-<p>As you might notice by running the above,it returns a lot of pretty much useless 💩.</p>
-<p>We can get a formatted and usable return by posting the userinfo endpoint</p>
-<pre><code class="language-bash">https://sso.sexycoders.org/auth/realms/&lt;your_realm&gt;/protocol/openid-connect/userinfo
-</code></pre>
-<p>The response for an active token will then look like this:</p>
-<pre><code class="language-bash">{
-  &quot;sub&quot;:&quot;...&quot;,
-  &quot;email_verified&quot;:true,
-  &quot;preferred_username&quot;:&quot;username&quot;,
-  &quot;email&quot;:&quot;email&quot;
-}
-</code></pre>
-<p>A lot better aint it ?</p>
-<p>This will also include fields like Name or Last Name if present in the users profile.</p>
-<h2 id="endpoint-listing">Endpoint listing</h2>
-<p>We can find the list of available endpoints by using</p>
-<pre><code class="language-bash">https://sso.sexycoders.org/auth/realms/&lt;your_realm&gt;/.well-known/openid-configuration
-</code></pre>
-<p>Response should be a json file with the openid config of the server.
-It will also contain the available endpoints.</p></div>
+<h1 id="mongodb-the-backbone-of-our-data-management-systems">MongoDB: The Backbone of Our Data Management Systems</h1>
+<h2 id="introduction">Introduction</h2>
+<p>At our company, we understand the importance of robust, scalable, and flexible data management. We serve a diverse range of clients and users, each with unique needs and expectations. To effectively meet and exceed these expectations, we have chosen MongoDB as the cornerstone of our data management systems.</p>
+<h2 id="why-mongodb">Why MongoDB?</h2>
+<h3 id="dynamic-schema">Dynamic Schema</h3>
+<p>We operate in an ever-changing environment where the ability to adapt quickly is key. MongoDB's dynamic schema allows us to evolve our applications rapidly. We can modify our data structure as our application evolves without the need for expensive migrations that relational databases often require. Whether we are adding new features or modifying existing ones, MongoDB's flexibility allows us to iterate quickly and adapt to our users' needs.</p>
+<h3 id="scalability">Scalability</h3>
+<p>As we grow and serve more users, we need a database that scales with us. MongoDB's horizontal scaling capabilities, achieved through sharding, enable us to distribute our data across multiple machines. This ensures that as our user base grows, our applications continue to deliver high performance, maintaining a consistent user experience.</p>
+<h3 id="high-availability">High Availability</h3>
+<p>Our users expect our systems to be available whenever they need them. MongoDB's replica set feature provides high availability of our data. By maintaining the same data set across different servers, MongoDB allows us to provide uninterrupted service even in the event of a system failure, ensuring that our applications remain reliable and robust.</p>
+<h3 id="performance">Performance</h3>
+<p>MongoDB's performance is another crucial factor in our choice. Its BSON (Binary JSON) document format and indexing capabilities allow for fast query processing. This enables us to provide our users with speedy responses and a smooth user experience, even when dealing with large volumes of data.</p>
+<h3 id="versatility">Versatility</h3>
+<p>MongoDB is a highly versatile database that can handle a wide variety of data types. This is crucial for us as our applications deal with a range of different data structures. Whether we're dealing with text, geospatial data, or time-series data, MongoDB provides us with the tools to manage and analyze this data effectively.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In summary, MongoDB's flexibility, scalability, and high performance make it an ideal choice for our data management needs. It provides us with the tools to adapt quickly, scale efficiently, and deliver reliable, high-performance applications. This allows us to focus on what we do best: providing excellent service to our users.</p>
+<p>By leveraging MongoDB's capabilities, we are better equipped to handle the complexities of modern data management, deliver high-quality services, and drive our business forward. We believe that MongoDB is not just a database; it's a key component of our strategy for delivering superior user experiences.</p>
+<hr />
+<h2 id="read-more">Read More</h2>
+<ul>
+<li><a href="https://ubuntu.com/blog/what-is-mongodb">What is MongoDB?</a></li>
+<li><a href="https://www.mongodb.com/why-use-mongodb">Why use MongoDB?</a></li>
+<li><a href="https://www.simplilearn.com/tutorials/mongodb-tutorial/what-is-mongodb">MongoDB Tutorial: What is MongoDB?</a></li>
+<li><a href="https://www.mongodb.com/basics/clusters">MongoDB Basics: Clusters</a></li>
+<li><a href="https://www.mongodb.com/docs/manual/replication/">MongoDB Manual: Replication</a></li>
+</ul></div>
             </div>
         </div>
 

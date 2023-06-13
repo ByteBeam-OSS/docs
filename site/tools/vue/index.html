@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Token Verification - SexyCoders Docs</title>
+        <title>Vue - SexyCoders Docs</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -36,16 +36,16 @@
                             <li class="navitem">
                                 <a href="../.." class="nav-link">Home</a>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../authentication/" class="dropdown-item">Authentication</a>
+    <a href="../../api/authentication/" class="dropdown-item">Authentication</a>
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active">Token Verification</a>
+    <a href="../../api/verify/" class="dropdown-item">Token Verification</a>
 </li>
                                 </ul>
                             </li>
@@ -62,28 +62,28 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../../tools/docker/" class="dropdown-item">Docker</a>
+    <a href="../docker/" class="dropdown-item">Docker</a>
 </li>
                                     
 <li>
-    <a href="../../tools/mongodb/" class="dropdown-item">MongoDB</a>
+    <a href="../mongodb/" class="dropdown-item">MongoDB</a>
 </li>
                                     
 <li>
-    <a href="../../tools/apis/" class="dropdown-item">APIs</a>
+    <a href="../apis/" class="dropdown-item">APIs</a>
 </li>
                                     
 <li>
-    <a href="../../tools/vue/" class="dropdown-item">Vue</a>
+    <a href="./" class="dropdown-item active">Vue</a>
 </li>
                                     
 <li>
-    <a href="../../tools/security/" class="dropdown-item">Security</a>
+    <a href="../security/" class="dropdown-item">Security</a>
 </li>
                                 </ul>
                             </li>
@@ -96,12 +96,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../authentication/" class="nav-link">
+                                <a rel="prev" href="../apis/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../../for_developers/helpers/" class="nav-link">
+                                <a rel="next" href="../security/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -123,17 +123,25 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#authentication-and-api-usage" class="nav-link">Authentication and API Usage</a>
+            <li class="nav-item" data-level="1"><a href="#vuejs-the-progressive-javascript-framework-for-modern-cloud-solutions" class="nav-link">Vue.js - The Progressive JavaScript Framework for Modern Cloud Solutions</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#token-verification" class="nav-link">Token Verification</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#formatted-response" class="nav-link">Formatted response</a>
+            <li class="nav-item" data-level="2"><a href="#introduction" class="nav-link">Introduction</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#endpoint-listing" class="nav-link">Endpoint listing</a>
+            <li class="nav-item" data-level="2"><a href="#what-is-vuejs" class="nav-link">What is Vue.js?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#why-vuejs-in-modern-cloud-solutions" class="nav-link">Why Vue.js in Modern Cloud Solutions?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#conclusion" class="nav-link">Conclusion</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#read-more" class="nav-link">Read More</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -144,43 +152,36 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="authentication-and-api-usage">Authentication and API Usage</h1>
-<h2 id="token-verification">Token Verification</h2>
-<pre><code class="language-bash">curl -X POST \
-  -H &quot;Content-Type: application/x-www-form-urlencoded&quot; \
-  -d &quot;client_id=&lt;your_client_id&gt;&quot; \
-  -d &quot;client_secret=&lt;your_client_secret&gt;&quot;\
-  -d &quot;token=&lt;token_value&gt;&quot; \
-  https://sso.sexycoders.org/auth/realms/&lt;your_realm&gt;/protocol/openid-connect/token/introspect
-</code></pre>
-<p>This will verify if the token is active or not by returning:</p>
-<pre><code class="language-bash">HUGE PILE OF JSON SHIT
-</code></pre>
-<p>or </p>
-<pre><code class="language-bash">{&quot;active&quot;:false}
-</code></pre>
-<p>You can then procceed to the execution or not of the rest of the code.</p>
-<h2 id="formatted-response">Formatted response</h2>
-<p>As you might notice by running the above,it returns a lot of pretty much useless 💩.</p>
-<p>We can get a formatted and usable return by posting the userinfo endpoint</p>
-<pre><code class="language-bash">https://sso.sexycoders.org/auth/realms/&lt;your_realm&gt;/protocol/openid-connect/userinfo
-</code></pre>
-<p>The response for an active token will then look like this:</p>
-<pre><code class="language-bash">{
-  &quot;sub&quot;:&quot;...&quot;,
-  &quot;email_verified&quot;:true,
-  &quot;preferred_username&quot;:&quot;username&quot;,
-  &quot;email&quot;:&quot;email&quot;
-}
-</code></pre>
-<p>A lot better aint it ?</p>
-<p>This will also include fields like Name or Last Name if present in the users profile.</p>
-<h2 id="endpoint-listing">Endpoint listing</h2>
-<p>We can find the list of available endpoints by using</p>
-<pre><code class="language-bash">https://sso.sexycoders.org/auth/realms/&lt;your_realm&gt;/.well-known/openid-configuration
-</code></pre>
-<p>Response should be a json file with the openid config of the server.
-It will also contain the available endpoints.</p></div>
+<h1 id="vuejs-the-progressive-javascript-framework-for-modern-cloud-solutions">Vue.js - The Progressive JavaScript Framework for Modern Cloud Solutions</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Vue.js, often referred to simply as Vue, is a modern progressive JavaScript framework used for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. This means that the core library focuses solely on the view layer, making it easy to integrate with other libraries or existing projects. </p>
+<h2 id="what-is-vuejs">What is Vue.js?</h2>
+<p>Vue.js is a popular JavaScript framework for building user interfaces. Vue, which means 'view' in French, is fitting for a framework that focuses on the view layer. Vue.js adopts the single-page application (SPA) architecture, allowing developers to create powerful, fast applications that deliver an outstanding user experience.</p>
+<h3 id="vuejs-history">Vue.js History</h3>
+<p>Vue.js was first released in 2014 by Evan You, a former Google engineer. He had previously worked on AngularJS projects at Google and decided to extract what he saw as the best parts of Angular, building a lightweight and flexible framework that avoids unnecessary complexity. This project ended up as Vue.js.</p>
+<h2 id="why-vuejs-in-modern-cloud-solutions">Why Vue.js in Modern Cloud Solutions?</h2>
+<p>There are several reasons why Vue.js is an excellent choice for modern cloud solutions:</p>
+<h3 id="1-easy-integration">1. Easy Integration</h3>
+<p>Vue.js is built to be incrementally adoptable, making it very easy to integrate with existing projects. This is particularly useful in microservices-based cloud architectures, where each service can potentially be a separate application.</p>
+<h3 id="2-performance">2. Performance</h3>
+<p>Vue.js is lightweight and has a small footprint, both of which contribute to high performance. This is particularly important in cloud environments, where resources are often metered.</p>
+<h3 id="3-scalability">3. Scalability</h3>
+<p>Vue.js is designed with scalability in mind. It's easy to scale Vue.js applications horizontally in cloud environments, due to the framework's design and the SPA architecture.</p>
+<h3 id="4-flexibility">4. Flexibility</h3>
+<p>Vue.js supports a range of development paradigms, including declarative programming, imperative programming, and object-oriented programming. This flexibility makes Vue.js suitable for a wide range of applications and use cases.</p>
+<h3 id="5-ecosystem">5. Ecosystem</h3>
+<p>The Vue.js ecosystem includes tools like Vuex for state management and Vue Router for routing, and supports a wide range of plugins and add-ons. This makes it easy to build complex applications with Vue.js.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In summary, Vue.js is a versatile, performant, and easy-to-use JavaScript framework that's well-suited to building modern cloud applications. With its flexibility, scalability, and powerful ecosystem, Vue.js is a strong choice for any cloud solution.</p>
+<hr />
+<h2 id="read-more">Read More</h2>
+<ul>
+<li><a href="https://www.esparkinfo.com/blog/vuejs-for-large-scale-applications.html">Vue.js for Large Scale Applications</a></li>
+<li><a href="https://www.monocubed.com/blog/why-vuejs-gaining-popularity/">Why Vue.js is Gaining Popularity</a></li>
+<li><a href="https://v2.vuejs.org/v2/cookbook/dockerize-vuejs-app.html?redirect=true#Additional-Context">Dockerize Vue.js App (Vue CLI 2)</a></li>
+<li><a href="https://vuejs.org/guide/introduction.html">Vue.js Introduction Guide</a></li>
+<li><a href="https://www.bacancytechnology.com/blog/why-use-vue-js">Why Use Vue.js?</a></li>
+</ul></div>
             </div>
         </div>
 
