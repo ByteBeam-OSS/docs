@@ -7,6 +7,8 @@ nav:
   - For Developers: 
     - Helper Commands: for_developers/helpers.md
     - Names and Versioning: for_developers/versioning.md
+  - Databases:
+    - Managed Databases: data/managed.md
   - Tools:
     - Docker: tools/docker.md
     - MongoDB: tools/mongodb.md
