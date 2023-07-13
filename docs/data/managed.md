@@ -57,7 +57,7 @@ Replace `<database_name>` with the name of the database, `<collection_name>` wit
 
 ## Retrieving Data
 
-To retrieve data from the database, send a POST request to the `/retrieveData` endpoint. Include the access token in the request header and specify the database, collection, and optional constraints in the request body. The example below demonstrates how to retrieve data:
+To retrieve data from the database, send a POST request to the `/retrieveData` endpoint. Include the access token in the request header and specify the database, collection, and optional count or constraints in the request body. The example below demonstrates how to retrieve data:
 
 ```bash
 body='{"database":"<database_name>","collection":"<collection_name>","constraints":{"<field_name>":"<value>"},"count":<count>}'
