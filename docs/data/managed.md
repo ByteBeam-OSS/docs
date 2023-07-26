@@ -27,7 +27,7 @@ To store data in the database, send a POST request to the `/storeData` endpoint.
 body='{"database":"<database_name>","collection":"<collection_name>","data":{"<field_name>":"<value>","<field_name>":"<value>"}}'
 base64_body=$(echo -n "$body" | base64)
 
-curl https://api.sexycoders.org/mydb/storeData \
+curl https://viki.sexycoders.org/api/data/storeData \
   -H "Authorization: Bearer $token" \
   -H "Content-Type: application/json" \
   -d "$base64_body"
@@ -45,7 +45,7 @@ To store multiple documents in the database, send a POST request to the `/storeM
 body='{"database":"<database_name>","collection":"<collection_name>","data":[{"<field_name>":"<value>","<field_name>":"<value>"}, {"<field_name>":"<value>","<field_name>":"<value>"}]}'
 base64_body=$(echo -n "$body" | base64)
 
-curl https://api.sexycoders.org/storeMultiple \
+curl https://viki.sexycoders.org/api/data/storeMultiple \
   -H "Authorization: Bearer $token" \
   -H "Content-Type: application/json" \
   -d "$base64_body"
@@ -63,7 +63,7 @@ To retrieve data from the database, send a POST request to the `/retrieveData` e
 body='{"database":"<database_name>","collection":"<collection_name>","constraints":{"<field_name>":"<value>"},"count":<count>}'
 base64_body=$(echo -n "$body" | base64)
 
-curl https://api.sexycoders.org/retrieveData \
+curl https://viki.sexycoders.org/api/data/retrieveData \
   -H "Authorization: Bearer $token" \
   -H "Content-Type: application/json" \
   -d "$base64_body"
@@ -79,7 +79,7 @@ To list collections in the database, send a POST request to the `/listCollection
 body='{"database":"<database_name>"}'
 base64_body=$(echo -n "$body" | base64)
 
-curl https://api.sexycoders.org/listCollections \
+curl https://viki.sexycoders.org/api/data/listCollections \
   -H "Authorization: Bearer $token" \
   -H "Content-Type: application/json" \
   -d "$base64_body"
