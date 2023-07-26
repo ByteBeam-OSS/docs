@@ -9,6 +9,8 @@ nav:
     - Names and Versioning: for_developers/versioning.md
   - Databases:
     - Managed Databases: data/managed.md
+  - ThirdParty:
+    - Solar API: thirdparty/solar.md
   - Tools:
     - Docker: tools/docker.md
     - MongoDB: tools/mongodb.md
