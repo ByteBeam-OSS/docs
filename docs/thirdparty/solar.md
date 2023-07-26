@@ -11,6 +11,10 @@ If you dont have credentials and need help getting them please contact us.
 
 All endpoints in this API require authentication using an access token. To obtain an access token please read through the Authentication guide.
 
+## WARNING
+
+As always with our apis the respones are base64 and JSON encoded and the requests are expected to be as well!
+
 ## Endpoints
 
 ### 1. Get Park Inverter Logs
