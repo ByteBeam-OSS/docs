@@ -11,6 +11,7 @@ nav:
     - Managed Databases: data/managed.md
   - ThirdParty:
     - Solar API: thirdparty/solar.md
+    - Weather API: thirdparty/weather.md
   - Tools:
     - Docker: tools/docker.md
     - MongoDB: tools/mongodb.md
