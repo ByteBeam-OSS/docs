@@ -6,16 +6,15 @@ This API provides various endpoints to fetch weather and irradiance information 
 
 To access the API, you need to obtain an access token by following the authentication process outlined below.
 
-If you dont have credentials and need help getting them please contact us.
+If you don't have credentials and need help getting them, please contact us.
 
 ## Authentication
 
-All endpoints in this API require authentication using an access token. To obtain an access token please read through the Authentication guide.
+All endpoints in this API require authentication using an access token. To obtain an access token, please read through the Authentication guide.
 
 ## WARNING
 
-As always with our apis the respones are base64 and JSON encoded and the requests are expected to be as well!
-
+As always with our APIs, the responses are base64 and JSON encoded, and the requests are expected to be as well!
 
 ## Endpoints
 
@@ -30,12 +29,19 @@ As always with our apis the respones are base64 and JSON encoded and the request
 **Body:**
 
 - `parkId`: (required) The ID of the park.
-- `tz`: Timezone for the irradiance data.
-- `date`: Date for which irradiance data is required.
+- `tz`: (required) Timezone for the irradiance data.
+- `date`: (required) Date for which irradiance data is required.
 
-**Response:**
+**Example:**
 
-Returns irradiance data for the given park ID, timezone, and date.
+```bash
+body='{"parkId":"7", "tz": "+03:00", "date": "2023-08-09"}'
+base64_body=$(echo -n "$body" | base64)
+
+curl https://viki.sexycoders.org/api/thirdparty/getParkIrradianceInfo \
+  -H "Authorization: Bearer $token" \
+  -d "$base64_body"
+```
 
 ### 2. Get Full Weather Information for Park
 
@@ -49,9 +55,16 @@ Returns irradiance data for the given park ID, timezone, and date.
 
 - `parkId`: (required) The ID of the park.
 
-**Response:**
+**Example:**
 
-Returns detailed weather information for the given park ID.
+```bash
+body='{"parkId":"7"}'
+base64_body=$(echo -n "$body" | base64)
+
+curl https://viki.sexycoders.org/api/thirdparty/getParkWeatherInfoFull \
+  -H "Authorization: Bearer $token" \
+  -d "$base64_body"
+```
 
 ### 3. Get Park Weather Information by Timestamp
 
@@ -66,9 +79,16 @@ Returns detailed weather information for the given park ID.
 - `parkId`: (required) The ID of the park.
 - `dt`: (required) Unix timestamp for which weather data is required.
 
-**Response:**
+**Example:**
 
-Returns weather information for the given park ID at the specified timestamp.
+```bash
+body='{"parkId":"7", "dt": "1677897600"}'  # Replace with desired timestamp
+base64_body=$(echo -n "$body" | base64)
+
+curl https://viki.sexycoders.org/api/thirdparty/getParkWeatherInfoByTimestamp \
+  -H "Authorization: Bearer $token" \
+  -d "$base64_body"
+```
 
 ### 4. Get Basic Weather Information for Park
 
@@ -82,9 +102,16 @@ Returns weather information for the given park ID at the specified timestamp.
 
 - `parkId`: (required) The ID of the park.
 
-**Response:**
+**Example:**
 
-Returns basic weather information for the given park ID.
+```bash
+body='{"parkId":"7"}'
+base64_body=$(echo -n "$body" | base64)
+
+curl https://viki.sexycoders.org/api/thirdparty/getParkWeatherInfo \
+  -H "Authorization: Bearer $token" \
+  -d "$base64_body"
+```
 
 ## Error Handling
 
