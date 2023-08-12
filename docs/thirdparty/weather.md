@@ -124,3 +124,4 @@ Common errors include:
 - Internal Server Error.
 
 
+Weather data provided by [OpenWeather](https://home.openweathermap.org/)

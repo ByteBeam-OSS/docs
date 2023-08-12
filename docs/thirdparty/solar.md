@@ -109,3 +109,5 @@ In case of errors, the API will return appropriate HTTP status codes along with 
 This API does not have rate limiting implemented at this time. However, it is recommended to avoid excessive requests to ensure fair usage and optimal performance for all users and encourage us to keep it free.
 
 Happy coding!
+
+Solar Plant Data provided by [microsun energy systems](https://microsun.gr/)
