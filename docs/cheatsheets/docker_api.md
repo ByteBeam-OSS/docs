@@ -1,5 +1,21 @@
 ## Docker Swarm API Overview with Examples
 
+This is just a cheatsheet aiming to serve as a quick refference for finding what you need.
+
+If you need more info the Docker API documentation can be found at:
+
+[Docker API documentation](https://docs.docker.com/engine/api/)
+
+This link takes you to the Docker Engine API documentation. From there, you can select the version of the API you're interested in and browse the various endpoints in detail. Always ensure you're looking at the correct version of the documentation to match your Docker Engine version.
+
+## Production Swarm
+
+The examples bellow assume you are running a test swarm and have access to the local socket of docker.
+
+In production environments this will not be the case.
+
+If you are looking to setup a production ready setup, please also read the "Docker API in Container" guide.
+
 ### **1. Containers**:
 
 - **List all containers**:

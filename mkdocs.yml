@@ -18,5 +18,7 @@ nav:
     - APIs: tools/apis.md
     - Vue: tools/vue.md
     - Security: tools/security.md
+  - CookBooks:
+    - Docker API inside Container: cookbook/docker_api_in_container.md
   - CheatSheets:
     - Docker API: cheatsheets/docker_api.md
