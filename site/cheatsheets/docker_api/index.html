@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Docker API - SexyCoders Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">SexyCoders Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../api/authentication/" class="dropdown-item">Authentication</a>
+</li>
+                                    
+<li>
+    <a href="../../api/verify/" class="dropdown-item">Token Verification</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">ThirdParty</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../thirdparty/solar/" class="dropdown-item">Solar API</a>
+</li>
+            
+<li>
+    <a href="../../thirdparty/weather/" class="dropdown-item">Weather API</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Databases <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../data/managed/" class="dropdown-item">Managed Databases</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">For Developers <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../for_developers/helpers/" class="dropdown-item">Helper Commands</a>
+</li>
+                                    
+<li>
+    <a href="../../for_developers/versioning/" class="dropdown-item">Names and Versioning</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../tools/docker/" class="dropdown-item">Docker</a>
+</li>
+                                    
+<li>
+    <a href="../../tools/mongodb/" class="dropdown-item">MongoDB</a>
+</li>
+                                    
+<li>
+    <a href="../../tools/apis/" class="dropdown-item">APIs</a>
+</li>
+                                    
+<li>
+    <a href="../../tools/vue/" class="dropdown-item">Vue</a>
+</li>
+                                    
+<li>
+    <a href="../../tools/security/" class="dropdown-item">Security</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">CookBooks <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../cookbook/docker_api_in_container/" class="dropdown-item">Docker API inside Container</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">CheatSheets <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Docker API</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../cookbook/docker_api_in_container/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#docker-swarm-api-overview-with-examples" class="nav-link">Docker Swarm API Overview with Examples</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#production-swarm" class="nav-link">Production Swarm</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="docker-swarm-api-overview-with-examples">Docker Swarm API Overview with Examples</h2>
+<p>This is just a cheatsheet aiming to serve as a quick refference for finding what you need.</p>
+<p>If you need more info the Docker API documentation can be found at:</p>
+<p><a href="https://docs.docker.com/engine/api/">Docker API documentation</a></p>
+<p>This link takes you to the Docker Engine API documentation. From there, you can select the version of the API you're interested in and browse the various endpoints in detail. Always ensure you're looking at the correct version of the documentation to match your Docker Engine version.</p>
+<h2 id="production-swarm">Production Swarm</h2>
+<p>The examples bellow assume you are running a test swarm and have access to the local socket of docker.</p>
+<p>In production environments this will not be the case.</p>
+<p>If you are looking to setup a production ready setup, please also read the "Docker API in Container" guide.</p>
+<h3 id="1-containers"><strong>1. Containers</strong>:</h3>
+<ul>
+<li><strong>List all containers</strong>:</li>
+<li>
+<p>Endpoint: <code>GET /containers/json</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/containers/json | jq</code></p>
+</li>
+<li>
+<p><strong>Create a container</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>POST /containers/create</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X POST -H "Content-Type: application/json" -d '{"Image":"alpine", "Cmd":["echo", "hello world"]}' http://localhost/containers/create | jq</code></p>
+</li>
+<li>
+<p><strong>Inspect a container</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>GET /containers/{id}/json</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/containers/{id}/json | jq</code></p>
+</li>
+<li>
+<p><strong>List processes running inside a container</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>GET /containers/{id}/top</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/containers/{id}/top | jq</code></p>
+</li>
+<li>
+<p><strong>Get logs from a container</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>GET /containers/{id}/logs</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/containers/{id}/logs?stdout=true | jq</code></p>
+</li>
+<li>
+<p><strong>Start a container</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>POST /containers/{id}/start</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{id}/start</code></p>
+</li>
+<li>
+<p><strong>Stop a container</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>POST /containers/{id}/stop</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{id}/stop</code></p>
+</li>
+<li>
+<p><strong>Restart a container</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>POST /containers/{id}/restart</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{id}/restart</code></p>
+</li>
+<li>
+<p><strong>Kill a container</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>POST /containers/{id}/kill</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{id}/kill</code></p>
+</li>
+<li>
+<p><strong>Delete a container</strong>:</p>
+</li>
+<li>Endpoint: <code>DELETE /containers/{id}</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X DELETE http://localhost/containers/{id}</code></li>
+</ul>
+<h3 id="2-images"><strong>2. Images</strong>:</h3>
+<ul>
+<li><strong>List images</strong>:</li>
+<li>
+<p>Endpoint: <code>GET /images/json</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/images/json | jq</code></p>
+</li>
+<li>
+<p><strong>Inspect an image</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>GET /images/{name}/json</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/images/alpine/json | jq</code></p>
+</li>
+<li>
+<p><strong>Pull an image</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>POST /images/create</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X POST -d 'fromImage=alpine' http://localhost/images/create | jq</code></p>
+</li>
+<li>
+<p><strong>Remove an image</strong>:</p>
+</li>
+<li>Endpoint: <code>DELETE /images/{name}</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X DELETE http://localhost/images/alpine</code></li>
+</ul>
+<h3 id="3-nodes-swarm-specific"><strong>3. Nodes (Swarm Specific)</strong>:</h3>
+<ul>
+<li><strong>List nodes</strong>:</li>
+<li>
+<p>Endpoint: <code>GET /nodes</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/nodes | jq</code></p>
+</li>
+<li>
+<p><strong>Inspect a node</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>GET /nodes/{id}</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/nodes/{id} | jq</code></p>
+</li>
+<li>
+<p><strong>Update a node</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>POST /nodes/{id}/update</code>
+  <code>bash
+  # Must provide version and other details in the request body</code></p>
+</li>
+<li>
+<p><strong>Delete a node</strong>:</p>
+</li>
+<li>Endpoint: <code>DELETE /nodes/{id}</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X DELETE http://localhost/nodes/{id}</code></li>
+</ul>
+<h3 id="4-services-swarm-specific"><strong>4. Services (Swarm Specific)</strong>:</h3>
+<ul>
+<li><strong>List services</strong>:</li>
+<li>
+<p>Endpoint: <code>GET /services</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/services | jq</code></p>
+</li>
+<li>
+<p><strong>Create a service</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>POST /services/create</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X POST -H "Content-Type: application/json" -d '{"Name":"myservice", "TaskTemplate": {"ContainerSpec": {"Image":"alpine", "Command":["sleep", "3600"]}}}' http://localhost/services/create | jq</code></p>
+</li>
+<li>
+<p><strong>Inspect a service</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>GET /services/{id}</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/services/{id} | jq</code></p>
+</li>
+<li>
+<p><strong>Update a service</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>POST /services/{id}/update</code>
+  <code>bash
+  # This request needs additional details like the version of the service and the new configuration.</code></p>
+</li>
+<li>
+<p><strong>Delete a service</strong>:</p>
+</li>
+<li>Endpoint: <code>DELETE /services/{id}</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X DELETE http://localhost/services/{id}</code></li>
+</ul>
+<h3 id="5-tasks-swarm-specific"><strong>5. Tasks (Swarm Specific)</strong>:</h3>
+<ul>
+<li><strong>List tasks</strong>:</li>
+<li>
+<p>Endpoint: <code>GET /tasks</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/tasks | jq</code></p>
+</li>
+<li>
+<p><strong>Inspect a task</strong>:</p>
+</li>
+<li>Endpoint: <code>GET /tasks/{id}</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/tasks/{id} | jq</code></li>
+</ul>
+<h3 id="6-secrets-swarm-specific"><strong>6. Secrets (Swarm Specific)</strong>:</h3>
+<ul>
+<li><strong>List secrets</strong>:</li>
+<li>
+<p>Endpoint: <code>GET /secrets</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/secrets | jq</code></p>
+</li>
+<li>
+<p><strong>Create a secret</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>POST /secrets/create</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X POST -H "Content-Type: application/json" -d '{"Name":"mysecret", "Data":"base64_encoded_data"}' http://localhost/secrets/create | jq</code></p>
+</li>
+<li>
+<p><strong>Inspect a secret</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>GET /secrets/{id}</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/secrets/{id} | jq</code></p>
+</li>
+<li>
+<p><strong>Delete a secret</strong>:</p>
+</li>
+<li>Endpoint: <code>DELETE /secrets/{id}</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X DELETE http://localhost/secrets/{id}</code></li>
+</ul>
+<h3 id="7-configs-swarm-specific"><strong>7. Configs (Swarm Specific)</strong>:</h3>
+<ul>
+<li><strong>List configs</strong>:</li>
+<li>
+<p>Endpoint: <code>GET /configs</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/configs | jq</code></p>
+</li>
+<li>
+<p><strong>Create a config</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>POST /configs/create</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X POST -H "Content-Type: application/json" -d '{"Name":"myconfig", "Data":"base64_encoded_data"}' http://localhost/configs/create | jq</code></p>
+</li>
+<li>
+<p><strong>Inspect a config</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>GET /configs/{id}</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/configs/{id} | jq</code></p>
+</li>
+<li>
+<p><strong>Delete a config</strong>:</p>
+</li>
+<li>Endpoint: <code>DELETE /configs/{id}</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X DELETE http://localhost/configs/{id}</code></li>
+</ul>
+<h3 id="8-plugins"><strong>8. Plugins</strong>:</h3>
+<ul>
+<li><strong>List plugins</strong>:</li>
+<li>
+<p>Endpoint: <code>GET /plugins</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/plugins | jq</code></p>
+</li>
+<li>
+<p><strong>Inspect a plugin</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>GET /plugins/{name}/json</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/plugins/{name}/json | jq</code></p>
+</li>
+<li>
+<p><strong>Install a plugin</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>POST /plugins/pull</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X POST -H "Content-Type: application/json" -d '{"Name":"plugin_name"}' http://localhost/plugins/pull</code></p>
+</li>
+<li>
+<p><strong>Enable a plugin</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>POST /plugins/{name}/enable</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X POST http://localhost/plugins/{name}/enable</code></p>
+</li>
+<li>
+<p><strong>Disable a plugin</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>POST /plugins/{name}/disable</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X POST http://localhost/plugins/{name}/disable</code></p>
+</li>
+<li>
+<p><strong>Remove a plugin</strong>:</p>
+</li>
+<li>Endpoint: <code>DELETE /plugins/{name}</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X DELETE http://localhost/plugins/{name}</code></li>
+</ul>
+<h3 id="9-networks"><strong>9. Networks</strong>:</h3>
+<ul>
+<li><strong>List networks</strong>:</li>
+<li>
+<p>Endpoint: <code>GET /networks</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/networks | jq</code></p>
+</li>
+<li>
+<p><strong>Inspect a network</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>GET /networks/{id}</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/networks/{id} | jq</code></p>
+</li>
+<li>
+<p><strong>Create a network</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>POST /networks/create</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X POST -H "Content-Type: application/json" -d '{"Name":"mynetwork", "Driver":"overlay"}' http://localhost/networks/create | jq</code></p>
+</li>
+<li>
+<p><strong>Remove a network</strong>:</p>
+</li>
+<li>Endpoint: <code>DELETE /networks/{id}</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X DELETE http://localhost/networks/{id}</code></li>
+</ul>
+<h3 id="10-volumes"><strong>10. Volumes</strong>:</h3>
+<ul>
+<li><strong>List volumes</strong>:</li>
+<li>
+<p>Endpoint: <code>GET /volumes</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/volumes | jq</code></p>
+</li>
+<li>
+<p><strong>Inspect a volume</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>GET /volumes/{name}</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/volumes/{name} | jq</code></p>
+</li>
+<li>
+<p><strong>Create a volume</strong>:</p>
+</li>
+<li>
+<p>Endpoint: <code>POST /volumes/create</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X POST -H "Content-Type: application/json" -d '{"Name":"myvolume"}' http://localhost/volumes/create | jq</code></p>
+</li>
+<li>
+<p><strong>Remove a volume</strong>:</p>
+</li>
+<li>Endpoint: <code>DELETE /volumes/{name}</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X DELETE http://localhost/volumes/{name}</code></li>
+</ul>
+<h3 id="11-system"><strong>11. System</strong>:</h3>
+<ul>
+<li><strong>Get Docker version</strong>:</li>
+<li>
+<p>Endpoint: <code>GET /version</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/version | jq</code></p>
+</li>
+<li>
+<p><strong>Get system information</strong>:</p>
+</li>
+<li>Endpoint: <code>GET /info</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock http://localhost/info | jq</code></li>
+</ul>
+<h3 id="12-exec"><strong>12. Exec</strong>:</h3>
+<ul>
+<li><strong>Create exec instance</strong>:</li>
+<li>
+<p>Endpoint: <code>POST /containers/{id}/exec</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X POST -H "Content-Type: application/json" -d '{"AttachStdin":false, "AttachStdout":true, "AttachStderr":true, "Cmd":["date"]}' http://localhost/containers/{id}/exec | jq</code></p>
+</li>
+<li>
+<p><strong>Start exec instance</strong>:</p>
+</li>
+<li>Endpoint: <code>POST /exec/{id}/start</code>
+  <code>bash
+  curl -s --unix-socket /var/run/docker.sock -X POST -H "Content-Type: application/json" -d '{"Detach": false, "Tty": false}' http://localhost/exec/{id}/start | jq</code></li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

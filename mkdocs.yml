@@ -18,7 +18,11 @@ nav:
     - APIs: tools/apis.md
     - Vue: tools/vue.md
     - Security: tools/security.md
-  - CookBooks:
-    - Docker API inside Container: cookbook/docker_api_in_container.md
-  - CheatSheets:
-    - Docker API: cheatsheets/docker_api.md
+  - CTRL-INS:
+    - Docker:
+      - Docker API: copy/docker/docker_api.md
+      - Docker API inside Container: copy/docker/docker_api_in_container.md
+    - Git:
+      - Moving Changes to a Different Branch: copy/git/move_changes_to_another_branch.md
+    - GPG Keys: copy/gpg.md
+    - Thunderbird GPG Keys: copy/thunderbird_gpg.md

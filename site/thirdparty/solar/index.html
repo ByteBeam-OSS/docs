@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Docker - SexyCoders Docs</title>
+        <title>Solar API - SexyCoders Docs</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -36,7 +36,7 @@
                             <li class="navitem">
                                 <a href="../.." class="nav-link">Home</a>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -53,11 +53,11 @@
     <ul class="dropdown-menu">
             
 <li>
-    <a href="../../thirdparty/solar/" class="dropdown-item">Solar API</a>
+    <a href="./" class="dropdown-item active">Solar API</a>
 </li>
             
 <li>
-    <a href="../../thirdparty/weather/" class="dropdown-item">Weather API</a>
+    <a href="../weather/" class="dropdown-item">Weather API</a>
 </li>
     </ul>
   </li>
@@ -85,28 +85,28 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="./" class="dropdown-item active">Docker</a>
+    <a href="../../tools/docker/" class="dropdown-item">Docker</a>
 </li>
                                     
 <li>
-    <a href="../mongodb/" class="dropdown-item">MongoDB</a>
+    <a href="../../tools/mongodb/" class="dropdown-item">MongoDB</a>
 </li>
                                     
 <li>
-    <a href="../apis/" class="dropdown-item">APIs</a>
+    <a href="../../tools/apis/" class="dropdown-item">APIs</a>
 </li>
                                     
 <li>
-    <a href="../vue/" class="dropdown-item">Vue</a>
+    <a href="../../tools/vue/" class="dropdown-item">Vue</a>
 </li>
                                     
 <li>
-    <a href="../security/" class="dropdown-item">Security</a>
+    <a href="../../tools/security/" class="dropdown-item">Security</a>
 </li>
                                 </ul>
                             </li>
@@ -137,12 +137,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../../for_developers/versioning/" class="nav-link">
+                                <a rel="prev" href="../../api/verify/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../mongodb/" class="nav-link">
+                                <a rel="next" href="../weather/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -164,36 +164,28 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#docker-and-docker-swarm" class="nav-link">Docker and Docker Swarm</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#introduction-to-docker" class="nav-link">Introduction to Docker</a>
+            <li class="nav-item" data-level="2"><a href="#api-documentation" class="nav-link">API Documentation</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#why-use-docker" class="nav-link">Why Use Docker?</a>
+            
+            <li class="nav-item" data-level="2"><a href="#warning" class="nav-link">WARNING</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#docker-compose" class="nav-link">Docker Compose</a>
+            
+            <li class="nav-item" data-level="2"><a href="#endpoints" class="nav-link">Endpoints</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#introduction-to-docker-swarm" class="nav-link">Introduction to Docker Swarm</a>
+            
+            <li class="nav-item" data-level="2"><a href="#error-handling" class="nav-link">Error Handling</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#why-use-docker-swarm" class="nav-link">Why Use Docker Swarm?</a>
+            
+            <li class="nav-item" data-level="2"><a href="#rate-limiting" class="nav-link">Rate Limiting</a>
               <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#docker-in-modern-cloud-solutions" class="nav-link">Docker in Modern Cloud Solutions</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#read-more" class="nav-link">Read More</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
               </ul>
             </li>
         </ul>
@@ -201,100 +193,86 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="docker-and-docker-swarm">Docker and Docker Swarm</h1>
-<h2 id="introduction-to-docker">Introduction to Docker</h2>
-<p><a name="introduction-to-docker"></a></p>
-<p>Docker is an open-source platform designed to automate the deployment, scaling, and operation of applications. It uses containerization technology to wrap software and its dependencies into a standardized unit for software development. Docker containers, which are lightweight and standalone, can run on any machine that installs Docker, regardless of the operating environment.</p>
-<h2 id="why-use-docker">Why Use Docker?</h2>
-<p><a name="why-use-docker"></a></p>
-<p>Docker brings several benefits to the software development process:</p>
+<h2 id="api-documentation">API Documentation</h2>
+<h3 id="introduction">Introduction</h3>
+<p>Welcome to the documentation for the Microsun Solar API. This API allows authorized third-party applications to access and retrieve data related to inverters. 
+To access the API, you need to obtain an access token by following the authentication process outlined below.</p>
+<p>If you dont have credentials and need help getting them please contact us.</p>
+<h3 id="authentication">Authentication</h3>
+<p>All endpoints in this API require authentication using an access token. To obtain an access token please read through the Authentication guide.</p>
+<h2 id="warning">WARNING</h2>
+<p>As always with our apis the respones are base64 and JSON encoded and the requests are expected to be as well!</p>
+<h2 id="endpoints">Endpoints</h2>
+<h3 id="1-get-park-inverter-logs">1. Get Park Inverter Logs</h3>
+<p><strong>Endpoint:</strong> <code>/api/thirdparty/getParkInverterLogs</code></p>
+<p><strong>Method:</strong> <code>POST</code></p>
+<p><strong>Authorization:</strong> Required (Bearer token)</p>
+<p><strong>Request Body:</strong>
+The request body must be a JSON object containing the following parameter:</p>
 <ul>
-<li>
-<p><strong>Portability</strong>: Since Docker containers encapsulate everything an application needs to run (including the operating system, application code, runtime, system tools, and libraries), they ensure consistency across multiple development and staging environments.</p>
-</li>
-<li>
-<p><strong>Efficiency</strong>: Docker containers are lightweight because they use shared operating systems. They take up less space than VMs (virtual machines), and start up and replicate quickly.</p>
-</li>
-<li>
-<p><strong>Version Control and Component Reuse</strong>: Docker has built-in version control capabilities that make it easy to track changes, roll back, and ensure consistency.</p>
-</li>
-<li>
-<p><strong>Sharing</strong>: Docker has a public registry (Docker Hub) where you can share your containers with others, which is particularly useful for publishing your work and collaborating with others.</p>
-</li>
+<li><code>parkId</code> (string, required): The unique identifier of the park for which you want to retrieve inverter logs.</li>
 </ul>
-<h2 id="docker-compose">Docker Compose</h2>
-<p><a name="docker-compose"></a></p>
-<p>Docker Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application's services, and then with a single command, you can create and start all the services from your configuration.</p>
-<p>Using Docker Compose can simplify the process of managing multi-container Docker applications. It allows developers to define an application's infrastructure and dependencies in a single file, then spin up the application with a single command. </p>
-<h2 id="introduction-to-docker-swarm">Introduction to Docker Swarm</h2>
-<p><a name="introduction-to-docker-swarm"></a></p>
-<p>Docker Swarm, often just referred to as Swarm, is Docker's native clustering and scheduling tool. A swarm is a group of machines that are running Docker and joined into a cluster. After that has been established, you continue to run the Docker commands you're used to, but now they are executed on a cluster by a swarm manager. </p>
-<p>Swarm uses the standard Docker API, so any tool that already communicates with a Docker daemon can use Swarm to transparently scale to multiple hosts.</p>
-<h2 id="why-use-docker-swarm">Why Use Docker Swarm?</h2>
-<p><a name="why-use-docker-swarm"></a></p>
-<p>Docker Swarm provides several advantages:</p>
+<p>Example using <code>curl</code>:</p>
+<pre><code class="language-bash">body='{&quot;parkId&quot;:&quot;8&quot;}'
+base64_body=$(echo -n &quot;$body&quot; | base64)
+
+curl https://viki.sexycoders.org/api/thirdparty/getParkInverterLogs \
+  -H &quot;Authorization: Bearer $token&quot; \
+  -d &quot;$base64_body&quot;
+</code></pre>
+<p><strong>Response:</strong>
+If successful, the response will be a JSON object containing the data for all inverters belonging to the specified park.</p>
 <ul>
-<li>
-<p><strong>Distributed Design</strong>: Instead of handling everything on one single Docker host, you can handle it across multiple Docker hosts.</p>
-</li>
-<li>
-<p><strong>Scalability</strong>: Docker Swarm allows you to increase the number of container instances as demand increases.</p>
-</li>
-<li>
-<p><strong>High Availability</strong>: Docker Swarm provides high availability with features like service replication and service health checking.</p>
-</li>
-<li>
-<p><strong>Security</strong>: Docker Swarm uses TLS for authentication, role-based access control, and cryptographic node identity, making it a secure choice for deployment.</p>
-</li>
+<li><code>200 OK</code> with the response data on success.</li>
+<li><code>400 Bad Request</code> if <code>parkId</code> is missing in the request body.</li>
+<li><code>404 Not Found</code> if no inverters are found for the specified park.</li>
+<li><code>500 Internal Server Error</code> on server errors.</li>
 </ul>
-<h2 id="docker-in-modern-cloud-solutions">Docker in Modern Cloud Solutions</h2>
-<p><a name="docker-in-modern-cloud-solutions"></a></p>
-<p>Docker is increasingly used in modern cloud solutions for several reasons:</p>
+<h3 id="2-get-inverter-data-by-id">2. Get Inverter Data by ID</h3>
+<p><strong>Endpoint:</strong> <code>/api/thirdparty/getInverterDataById</code></p>
+<p><strong>Method:</strong> <code>POST</code></p>
+<p><strong>Authorization:</strong> Required (Bearer token)</p>
+<p><strong>Request Body:</strong>
+The request body must be a JSON object containing the following parameter:</p>
 <ul>
-<li>
-<p><strong>Microservices Architecture</strong>: Docker is ideal for microservices architecture because it allows each service to run in its own container, making it easy to scale and update services independently.</p>
-</li>
-<li>
-<p><strong>Continuous Integration/Continuous Deployment (CI/CD)</strong>: Docker can integrate with popular CI/CD tools like Jenkins, allowing for seamless, efficient, and consistent delivery pipelines.</p>
-</li>
-<li>
-<p><strong>DevOps Practices</strong>: Docker aligns with DevOps practices by enabling developers to work in standardized environments using local containers which provide your applications and services. This greatly reduces the "it works on my machine" problem.</p>
-</li>
-<li>
-<p><strong>Cloud Portability</strong>: Applications packaged as Docker containers can run on any machine that has Docker installed, regardless of the underlying infrastructure. This makes it easy to move applications between different cloud providers or between on-premises and cloud environments.</p>
-</li>
+<li><code>inverterId</code> (string, required): The unique identifier of the inverter for which you want to retrieve data.</li>
 </ul>
-<p>Docker Swarm extends these benefits by providing native clustering and orchestration capabilities which are essential in a cloud environment. It helps in maintaining high availability and failover capabilities, making it a good choice for production environments.</p>
-<p>Modern cloud solutions often require running and managing many containers across multiple machines. Docker Swarm provides the tools and platform to maintain, scale, and coordinate these containers, simplifying complex tasks.</p>
-<p>In conclusion, Docker and Docker Swarm provide a powerful platform for developing, shipping, and running applications. By containerizing applications and services, teams can become more agile, test more efficiently, and deploy faster with assured consistency. Docker is transforming the way teams think about applications and is a key component of many modern cloud strategies.</p>
-<hr />
-<h2 id="read-more">Read More</h2>
-<h3 id="docker">Docker</h3>
+<p>Example using <code>curl</code>:</p>
+<pre><code class="language-bash">body='{&quot;inverterId&quot;:&quot;xyz123&quot;}'
+base64_body=$(echo -n &quot;$body&quot; | base64)
+
+curl https://viki.sexycoders.org/api/thirdparty/getInverterDataById \
+  -H &quot;Authorization: Bearer $token&quot; \
+  -d &quot;$base64_body&quot;
+</code></pre>
+<p><strong>Response:</strong>
+If successful, the response will be a JSON object containing the data for the specified inverter.</p>
 <ul>
-<li><a href="https://www.docker.com/">Docker</a></li>
-<li><a href="https://docs.docker.com/get-docker/">Get Docker</a></li>
-<li><a href="https://docs.docker.com/get-started/overview/">Docker Get Started: Overview</a></li>
-<li><a href="https://www.wikiwand.com/en/Docker_(software)">Docker (software) on Wikiwand</a></li>
-<li><a href="https://www.docker.com/why-docker/">Why Docker?</a></li>
-<li><a href="https://www.howtogeek.com/devops/what-does-docker-do-and-when-should-you-use-it/">What Does Docker Do and When Should You Use It?</a></li>
+<li><code>200 OK</code> with the response data on success.</li>
+<li><code>404 Not Found</code> if the specified inverter is not found.</li>
+<li><code>500 Internal Server Error</code> on server errors.</li>
 </ul>
-<h3 id="docker-swarm">Docker Swarm</h3>
+<h3 id="3-get-combined-inverter-data">3. Get Combined Inverter Data</h3>
+<p><strong>Endpoint:</strong> <code>/api/thirdparty/getCombinedInverterData</code></p>
+<p><strong>Method:</strong> <code>POST</code></p>
+<p><strong>Authorization:</strong> Required (Bearer token)</p>
+<p><strong>Request Body:</strong> This endpoint does not require any request body.</p>
+<p>Example using <code>curl</code>:</p>
+<pre><code class="language-bash">curl https://viki.sexycoders.org/api/thirdparty/getCombinedInverterData \
+  -H &quot;Authorization: Bearer $token&quot;
+</code></pre>
+<p><strong>Response:</strong>
+If successful, the response will be a JSON object containing the combined data for all available inverters.</p>
 <ul>
-<li><a href="https://docs.docker.com/get-started/swarm-deploy/">Docker Swarm Deploy</a></li>
-<li><a href="https://www.howtogeek.com/devops/what-is-docker-swarm-mode-and-when-should-you-use-it/">What Is Docker Swarm Mode and When Should You Use It?</a></li>
-<li><a href="https://docs.docker.com/engine/swarm/services/">Docker Swarm Services</a></li>
-<li><a href="https://www.simplilearn.com/tutorials/docker-tutorial/docker-swarm">Docker Swarm Tutorial</a></li>
-<li><a href="https://docs.docker.com/engine/reference/commandline/swarm/">Docker Swarm Command Line Reference</a></li>
-<li><a href="https://docs.docker.com/engine/swarm/">Docker Swarm</a></li>
+<li><code>200 OK</code> with the response data on success.</li>
+<li><code>500 Internal Server Error</code> on server errors.</li>
 </ul>
-<h3 id="docker-compose_1">Docker Compose</h3>
-<ul>
-<li><a href="https://docs.docker.com/get-started/08_using_compose/">Using Docker Compose</a></li>
-<li><a href="https://www.enterprisedb.com/postgres-tutorials/why-you-should-use-docker-compose">Why You Should Use Docker Compose</a></li>
-<li><a href="https://docs.docker.com/compose/">Docker Compose</a></li>
-<li><a href="https://github.com/docker/compose">Docker Compose on GitHub</a></li>
-<li><a href="https://www.howtogeek.com/devops/what-is-docker-compose-and-how-do-you-use-it/">What Is Docker Compose and How Do You Use It?</a></li>
-</ul></div>
+<h2 id="error-handling">Error Handling</h2>
+<p>In case of errors, the API will return appropriate HTTP status codes along with JSON error messages in the response body. Make sure to handle these error responses in your application.</p>
+<h2 id="rate-limiting">Rate Limiting</h2>
+<p>This API does not have rate limiting implemented at this time. However, it is recommended to avoid excessive requests to ensure fair usage and optimal performance for all users and encourage us to keep it free.</p>
+<p>Happy coding!</p>
+<p>Solar Plant Data provided by <a href="https://microsun.gr/">microsun energy systems</a></p></div>
             </div>
         </div>
 
