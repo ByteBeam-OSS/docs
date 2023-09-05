@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Managed Databases - SexyCoders Docs</title>
+        <title>GPG Keys - SexyCoders Docs</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -63,12 +63,12 @@
   </li>
                                 </ul>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Databases <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="./" class="dropdown-item active">Managed Databases</a>
+    <a href="../../data/managed/" class="dropdown-item">Managed Databases</a>
 </li>
                                 </ul>
                             </li>
@@ -110,7 +110,7 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">CTRL-INS <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -119,11 +119,11 @@
     <ul class="dropdown-menu">
             
 <li>
-    <a href="../../copy/docker/docker_api/" class="dropdown-item">Docker API</a>
+    <a href="../docker/docker_api/" class="dropdown-item">Docker API</a>
 </li>
             
 <li>
-    <a href="../../copy/docker/docker_api_in_container/" class="dropdown-item">Docker API inside Container</a>
+    <a href="../docker/docker_api_in_container/" class="dropdown-item">Docker API inside Container</a>
 </li>
     </ul>
   </li>
@@ -133,17 +133,17 @@
     <ul class="dropdown-menu">
             
 <li>
-    <a href="../../copy/git/move_changes_to_another_branch/" class="dropdown-item">Moving Changes to a Different Branch</a>
+    <a href="../git/move_changes_to_another_branch/" class="dropdown-item">Moving Changes to a Different Branch</a>
 </li>
     </ul>
   </li>
                                     
 <li>
-    <a href="../../copy/gpg/" class="dropdown-item">GPG Keys</a>
+    <a href="./" class="dropdown-item active">GPG Keys</a>
 </li>
                                     
 <li>
-    <a href="../../copy/thunderbird_gpg/" class="dropdown-item">Thunderbird GPG Keys</a>
+    <a href="../thunderbird_gpg/" class="dropdown-item">Thunderbird GPG Keys</a>
 </li>
                                 </ul>
                             </li>
@@ -156,12 +156,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../../thirdparty/weather/" class="nav-link">
+                                <a rel="prev" href="../git/move_changes_to_another_branch/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../../for_developers/helpers/" class="nav-link">
+                                <a rel="next" href="../thunderbird_gpg/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -183,30 +183,42 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#managed-database-api" class="nav-link">Managed Database API</a>
+            <li class="nav-item" data-level="1"><a href="#generating-a-key-with-gpg" class="nav-link">Generating a Key with GPG</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#table-of-contents" class="nav-link">Table of Contents</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#generating-an-ed25519-key" class="nav-link">Generating an Ed25519 Key</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#generating-an-rsa-key" class="nav-link">Generating an RSA Key</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#managing-gpg-keys" class="nav-link">Managing GPG Keys</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
             
-            <li class="nav-item" data-level="1"><a href="#api-documentation" class="nav-link">API Documentation</a>
+            <li class="nav-item" data-level="1"><a href="#configuring-thunderbird-with-gpg" class="nav-link">Configuring Thunderbird with GPG</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#authentication" class="nav-link">Authentication</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#storing-data" class="nav-link">Storing Data</a>
+            <li class="nav-item" data-level="2"><a href="#table-of-contents_1" class="nav-link">Table of Contents</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#storing-multiple-documents" class="nav-link">Storing Multiple Documents</a>
+            <li class="nav-item" data-level="2"><a href="#prerequisites_1" class="nav-link">Prerequisites</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#retrieving-data" class="nav-link">Retrieving Data</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#listing-collections" class="nav-link">Listing Collections</a>
+            <li class="nav-item" data-level="2"><a href="#configuring-thunderbird" class="nav-link">Configuring Thunderbird</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -217,68 +229,166 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="managed-database-api">Managed Database API</h1>
-<p>This documentation provides information on how to use the API endpoints provided by your managed database.
-The API allows users to interact with a database, perform operations such as storing data, retrieving data, listing collections, and more.</p>
-<h1 id="api-documentation">API Documentation</h1>
-<p>This documentation provides information on how to use the API endpoints defined in the provided code. The API allows users to interact with a database, perform operations such as storing data, retrieving data, listing collections, and more.</p>
-<p><strong>Important: All communications with the API must be done using JSON format and Base64 encoding.</strong></p>
-<h2 id="authentication">Authentication</h2>
-<p>Before making requests to the API, you need to obtain an access token by sending a POST request to the authentication endpoint. The following example demonstrates how to obtain an access token:</p>
-<pre><code class="language-bash">token=$(curl -X POST -d &quot;grant_type=client_credentials&amp;client_id=&lt;client_id&gt;&amp;client_secret=&lt;client_secret&gt;&quot; \
-  https://sso.sexycoders.org/auth/realms/sexycoders.org/protocol/openid-connect/token | jq -r '.access_token')
-</code></pre>
-<p>Replace <code>&lt;client_id&gt;</code> and <code>&lt;client_secret&gt;</code> with your actual credentials.</p>
-<h2 id="storing-data">Storing Data</h2>
-<p>To store data in the database, send a POST request to the <code>/storeData</code> endpoint. Include the access token in the request header and the data in the request body as an object. The example below demonstrates how to store data:</p>
-<pre><code class="language-bash">body='{&quot;database&quot;:&quot;&lt;database_name&gt;&quot;,&quot;collection&quot;:&quot;&lt;collection_name&gt;&quot;,&quot;data&quot;:{&quot;&lt;field_name&gt;&quot;:&quot;&lt;value&gt;&quot;,&quot;&lt;field_name&gt;&quot;:&quot;&lt;value&gt;&quot;}}'
-base64_body=$(echo -n &quot;$body&quot; | base64)
-
-curl https://viki.sexycoders.org/api/data/storeData \
-  -H &quot;Authorization: Bearer $token&quot; \
-  -H &quot;Content-Type: application/json&quot; \
-  -d &quot;$base64_body&quot;
-</code></pre>
-<p>Replace <code>&lt;database_name&gt;</code> with the name of the database, <code>&lt;collection_name&gt;</code> with the name of the collection, <code>&lt;field_name&gt;</code> with the actual field names in your data, and <code>&lt;value&gt;</code> with the corresponding values.</p>
-<p><strong>Note: The <code>/store</code> endpoint expects the <code>data</code> field to be a single object.</strong></p>
-<h2 id="storing-multiple-documents">Storing Multiple Documents</h2>
-<p>To store multiple documents in the database, send a POST request to the <code>/storeMultiple</code> endpoint. Include the access token in the request header and the data in the request body as a nested array of objects. The example below demonstrates how to store multiple documents:</p>
-<pre><code class="language-bash">body='{&quot;database&quot;:&quot;&lt;database_name&gt;&quot;,&quot;collection&quot;:&quot;&lt;collection_name&gt;&quot;,&quot;data&quot;:[{&quot;&lt;field_name&gt;&quot;:&quot;&lt;value&gt;&quot;,&quot;&lt;field_name&gt;&quot;:&quot;&lt;value&gt;&quot;}, {&quot;&lt;field_name&gt;&quot;:&quot;&lt;value&gt;&quot;,&quot;&lt;field_name&gt;&quot;:&quot;&lt;value&gt;&quot;}]}'
-base64_body=$(echo -n &quot;$body&quot; | base64)
-
-curl https://viki.sexycoders.org/api/data/storeMultiple \
-  -H &quot;Authorization: Bearer $token&quot; \
-  -H &quot;Content-Type: application/json&quot; \
-  -d &quot;$base64_body&quot;
-</code></pre>
-<p>Replace <code>&lt;database_name&gt;</code> with the name of the database, <code>&lt;collection_name&gt;</code> with the name of the collection, <code>&lt;field_name&gt;</code> with the actual field names in your data, and <code>&lt;value&gt;</code> with the corresponding values.</p>
-<p><strong>Note: The <code>/storeMultiple</code> endpoint expects the <code>data</code> field to be an array of objects.</strong></p>
-<h2 id="retrieving-data">Retrieving Data</h2>
-<p>To retrieve data from the database, send a POST request to the <code>/retrieveData</code> endpoint. Include the access token in the request header and specify the database, collection, and optional count or constraints in the request body. The example below demonstrates how to retrieve data:</p>
-<pre><code class="language-bash">body='{&quot;database&quot;:&quot;&lt;database_name&gt;&quot;,&quot;collection&quot;:&quot;&lt;collection_name&gt;&quot;,&quot;constraints&quot;:{&quot;&lt;field_name&gt;&quot;:&quot;&lt;value&gt;&quot;},&quot;count&quot;:&lt;count&gt;}'
-base64_body=$(echo -n &quot;$body&quot; | base64)
-
-curl https://viki.sexycoders.org/api/data/retrieveData \
-  -H &quot;Authorization: Bearer $token&quot; \
-  -H &quot;Content-Type: application/json&quot; \
-  -d &quot;$base64_body&quot;
-</code></pre>
-<p>Replace <code>&lt;database_name&gt;</code> with the name of the database, <code>&lt;collection_name&gt;</code> with the name of the collection, <code>&lt;field_name&gt;</code> with the actual field names in your data, <code>&lt;value&gt;</code> with the corresponding values, and <code>&lt;count&gt;</code> with the desired number of documents to retrieve (optional).</p>
-<h2 id="listing-collections">Listing Collections</h2>
-<p>To list collections in the database, send a POST request to the <code>/listCollections</code> endpoint. Include the access token in the request header and specify the database in the request body. The example below demonstrates how to list collections:</p>
-<pre><code class="language-bash">body='{&quot;database&quot;:&quot;&lt;database_name&gt;&quot;}'
-base64_body=$(echo -n &quot;$body&quot; | base64)
-
-curl https://viki.sexycoders.org/api/data/listCollections \
-  -H &quot;Authorization: Bearer $token&quot; \
-  -H &quot;Content-Type: application/json&quot; \
-  -d &quot;$base64_body&quot;
-</code></pre>
-<p>Replace <code>&lt;database_name&gt;</code> with the name of the database.</p>
+<h1 id="generating-a-key-with-gpg">Generating a Key with GPG</h1>
+<p>This guide provides step-by-step instructions on generating both Ed25519 and RSA keys using GPG.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#generating-an-ed25519-key">Generating an Ed25519 Key</a></li>
+<li><a href="#generating-an-rsa-key">Generating an RSA Key</a></li>
+<li><a href="#managing-gpg-keys">Managing GPG Keys</a></li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>GnuPG installed.</li>
+</ul>
+<h2 id="generating-an-ed25519-key">Generating an Ed25519 Key</h2>
+<ol>
+<li>
+<p><strong>Open a Terminal or Command Prompt</strong>.</p>
+</li>
+<li>
+<p><strong>Initiate Key Generation</strong>:
+   <code>bash
+   gpg --expert --full-generate-key</code></p>
+</li>
+<li>
+<p><strong>Select Key Type</strong>:</p>
+</li>
+<li>
+<p>Choose <code>(E) ECC and ECC</code> when prompted.</p>
+</li>
+<li>
+<p><strong>Choose the Curve</strong>:</p>
+</li>
+<li>
+<p>Select <code>Ed25519</code>.</p>
+</li>
+<li>
+<p><strong>Set Key Expiry</strong>:</p>
+</li>
+<li>
+<p>Recommended: <code>2y</code> (or less) for a balance between security and convenience.</p>
+</li>
+<li>
+<p><strong>Enter User Details</strong>:</p>
+</li>
+<li>Real name: Your name.</li>
+<li>Email address: Your email.</li>
+<li>
+<p>Comment: Optional.</p>
+</li>
+<li>
+<p><strong>Set a Strong Passphrase</strong> to protect your private key.</p>
+</li>
+<li>
+<p><strong>Verify Key Generation</strong>:
+   <code>bash
+   gpg --list-keys your_email@example.com</code></p>
+</li>
+</ol>
+<h2 id="generating-an-rsa-key">Generating an RSA Key</h2>
+<ol>
+<li>
+<p><strong>Open a Terminal or Command Prompt</strong>.</p>
+</li>
+<li>
+<p><strong>Initiate Key Generation</strong>:
+   <code>bash
+   gpg --full-generate-key</code></p>
+</li>
+<li>
+<p><strong>Select Key Type</strong>:</p>
+</li>
+<li>
+<p>Choose <code>(1) RSA and RSA</code>.</p>
+</li>
+<li>
+<p><strong>Key Size</strong>:</p>
+</li>
+<li>
+<p>Choose <code>4096</code> bits for enhanced security.</p>
+</li>
+<li>
+<p><strong>Set Key Expiry</strong>:</p>
+</li>
+<li>
+<p>Recommended: <code>2y</code> (or less) for a balance between security and convenience.</p>
+</li>
+<li>
+<p><strong>Enter User Details</strong>:</p>
+</li>
+<li>Real name: Your name.</li>
+<li>Email address: Your email.</li>
+<li>
+<p>Comment: Optional.</p>
+</li>
+<li>
+<p><strong>Set a Strong Passphrase</strong> to protect your private key.</p>
+</li>
+<li>
+<p><strong>Verify Key Generation</strong>:
+   <code>bash
+   gpg --list-keys your_email@example.com</code></p>
+</li>
+</ol>
+<h2 id="managing-gpg-keys">Managing GPG Keys</h2>
+<h3 id="deleting-a-key">Deleting a Key</h3>
+<ol>
+<li>
+<p><strong>List All Keys</strong>:
+   <code>bash
+   gpg --list-keys</code></p>
+</li>
+<li>
+<p><strong>Delete the Desired Key</strong>:
+   <code>bash
+   gpg --delete-keys KEY_ID</code></p>
+</li>
+<li>
+<p><strong>Confirm Deletion</strong> when prompted.</p>
+</li>
+<li>
+<p><strong>Delete the Associated Private Key (if needed)</strong>:
+   <code>bash
+   gpg --delete-secret-keys KEY_ID</code></p>
+</li>
+</ol>
 <hr />
-<p>Note: Make sure to replace the placeholders <code>&lt;client_id&gt;</code>, <code>&lt;client_secret&gt;</code>, <code>&lt;database_name&gt;</code>, <code>&lt;collection_name&gt;</code>, <code>&lt;field_name&gt;</code>, and <code>&lt;value&gt;</code> with the actual values specific to your setup.</p>
-<p>Remember to include the access token obtained through the authentication process in the request headers when interacting with the API.</p>
-<p>For further assistance or inquiries, please contact the API support team at support@example.com.</p></div>
+<h1 id="configuring-thunderbird-with-gpg">Configuring Thunderbird with GPG</h1>
+<p>This guide provides step-by-step instructions on integrating Thunderbird with GPG for secure email communication.</p>
+<h2 id="table-of-contents_1">Table of Contents</h2>
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#configuring-thunderbird">Configuring Thunderbird</a></li>
+</ul>
+<h2 id="prerequisites_1">Prerequisites</h2>
+<ul>
+<li>Thunderbird installed.</li>
+<li>GnuPG installed.</li>
+</ul>
+<h2 id="configuring-thunderbird">Configuring Thunderbird</h2>
+<ol>
+<li>
+<p><strong>Open Thunderbird</strong>.</p>
+</li>
+<li>
+<p><strong>Access Configuration Editor</strong>:</p>
+</li>
+<li>
+<p>Navigate to: Thunderbird → Settings → General → Config Editor.</p>
+</li>
+<li>
+<p><strong>Enable External GnuPG</strong>:</p>
+</li>
+<li>Search for <code>mail.openpgp.allow_external_gnupg</code>.</li>
+<li>
+<p>Set its value to <code>true</code>.</p>
+</li>
+<li>
+<p><strong>Restart Thunderbird</strong> for the changes to take effect.</p>
+</li>
+</ol></div>
             </div>
         </div>
 

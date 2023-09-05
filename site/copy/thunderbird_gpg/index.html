@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Managed Databases - SexyCoders Docs</title>
+        <title>Thunderbird GPG Keys - SexyCoders Docs</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -63,12 +63,12 @@
   </li>
                                 </ul>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Databases <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="./" class="dropdown-item active">Managed Databases</a>
+    <a href="../../data/managed/" class="dropdown-item">Managed Databases</a>
 </li>
                                 </ul>
                             </li>
@@ -110,7 +110,7 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">CTRL-INS <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -119,11 +119,11 @@
     <ul class="dropdown-menu">
             
 <li>
-    <a href="../../copy/docker/docker_api/" class="dropdown-item">Docker API</a>
+    <a href="../docker/docker_api/" class="dropdown-item">Docker API</a>
 </li>
             
 <li>
-    <a href="../../copy/docker/docker_api_in_container/" class="dropdown-item">Docker API inside Container</a>
+    <a href="../docker/docker_api_in_container/" class="dropdown-item">Docker API inside Container</a>
 </li>
     </ul>
   </li>
@@ -133,17 +133,17 @@
     <ul class="dropdown-menu">
             
 <li>
-    <a href="../../copy/git/move_changes_to_another_branch/" class="dropdown-item">Moving Changes to a Different Branch</a>
+    <a href="../git/move_changes_to_another_branch/" class="dropdown-item">Moving Changes to a Different Branch</a>
 </li>
     </ul>
   </li>
                                     
 <li>
-    <a href="../../copy/gpg/" class="dropdown-item">GPG Keys</a>
+    <a href="../gpg/" class="dropdown-item">GPG Keys</a>
 </li>
                                     
 <li>
-    <a href="../../copy/thunderbird_gpg/" class="dropdown-item">Thunderbird GPG Keys</a>
+    <a href="./" class="dropdown-item active">Thunderbird GPG Keys</a>
 </li>
                                 </ul>
                             </li>
@@ -156,12 +156,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../../thirdparty/weather/" class="nav-link">
+                                <a rel="prev" href="../gpg/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../../for_developers/helpers/" class="nav-link">
+                                <a rel="next" class="nav-link disabled">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -183,30 +183,25 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#managed-database-api" class="nav-link">Managed Database API</a>
+            <li class="nav-item" data-level="1"><a href="#configuring-thunderbird-with-gpg" class="nav-link">Configuring Thunderbird with GPG</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#table-of-contents" class="nav-link">Table of Contents</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            
-            <li class="nav-item" data-level="1"><a href="#api-documentation" class="nav-link">API Documentation</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#authentication" class="nav-link">Authentication</a>
+            <li class="nav-item" data-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#storing-data" class="nav-link">Storing Data</a>
+            <li class="nav-item" data-level="2"><a href="#configuring-thunderbird" class="nav-link">Configuring Thunderbird</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#storing-multiple-documents" class="nav-link">Storing Multiple Documents</a>
+            <li class="nav-item" data-level="2"><a href="#additional-information" class="nav-link">Additional Information</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#retrieving-data" class="nav-link">Retrieving Data</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#listing-collections" class="nav-link">Listing Collections</a>
+            <li class="nav-item" data-level="2"><a href="#references" class="nav-link">References</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -217,68 +212,55 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="managed-database-api">Managed Database API</h1>
-<p>This documentation provides information on how to use the API endpoints provided by your managed database.
-The API allows users to interact with a database, perform operations such as storing data, retrieving data, listing collections, and more.</p>
-<h1 id="api-documentation">API Documentation</h1>
-<p>This documentation provides information on how to use the API endpoints defined in the provided code. The API allows users to interact with a database, perform operations such as storing data, retrieving data, listing collections, and more.</p>
-<p><strong>Important: All communications with the API must be done using JSON format and Base64 encoding.</strong></p>
-<h2 id="authentication">Authentication</h2>
-<p>Before making requests to the API, you need to obtain an access token by sending a POST request to the authentication endpoint. The following example demonstrates how to obtain an access token:</p>
-<pre><code class="language-bash">token=$(curl -X POST -d &quot;grant_type=client_credentials&amp;client_id=&lt;client_id&gt;&amp;client_secret=&lt;client_secret&gt;&quot; \
-  https://sso.sexycoders.org/auth/realms/sexycoders.org/protocol/openid-connect/token | jq -r '.access_token')
-</code></pre>
-<p>Replace <code>&lt;client_id&gt;</code> and <code>&lt;client_secret&gt;</code> with your actual credentials.</p>
-<h2 id="storing-data">Storing Data</h2>
-<p>To store data in the database, send a POST request to the <code>/storeData</code> endpoint. Include the access token in the request header and the data in the request body as an object. The example below demonstrates how to store data:</p>
-<pre><code class="language-bash">body='{&quot;database&quot;:&quot;&lt;database_name&gt;&quot;,&quot;collection&quot;:&quot;&lt;collection_name&gt;&quot;,&quot;data&quot;:{&quot;&lt;field_name&gt;&quot;:&quot;&lt;value&gt;&quot;,&quot;&lt;field_name&gt;&quot;:&quot;&lt;value&gt;&quot;}}'
-base64_body=$(echo -n &quot;$body&quot; | base64)
-
-curl https://viki.sexycoders.org/api/data/storeData \
-  -H &quot;Authorization: Bearer $token&quot; \
-  -H &quot;Content-Type: application/json&quot; \
-  -d &quot;$base64_body&quot;
-</code></pre>
-<p>Replace <code>&lt;database_name&gt;</code> with the name of the database, <code>&lt;collection_name&gt;</code> with the name of the collection, <code>&lt;field_name&gt;</code> with the actual field names in your data, and <code>&lt;value&gt;</code> with the corresponding values.</p>
-<p><strong>Note: The <code>/store</code> endpoint expects the <code>data</code> field to be a single object.</strong></p>
-<h2 id="storing-multiple-documents">Storing Multiple Documents</h2>
-<p>To store multiple documents in the database, send a POST request to the <code>/storeMultiple</code> endpoint. Include the access token in the request header and the data in the request body as a nested array of objects. The example below demonstrates how to store multiple documents:</p>
-<pre><code class="language-bash">body='{&quot;database&quot;:&quot;&lt;database_name&gt;&quot;,&quot;collection&quot;:&quot;&lt;collection_name&gt;&quot;,&quot;data&quot;:[{&quot;&lt;field_name&gt;&quot;:&quot;&lt;value&gt;&quot;,&quot;&lt;field_name&gt;&quot;:&quot;&lt;value&gt;&quot;}, {&quot;&lt;field_name&gt;&quot;:&quot;&lt;value&gt;&quot;,&quot;&lt;field_name&gt;&quot;:&quot;&lt;value&gt;&quot;}]}'
-base64_body=$(echo -n &quot;$body&quot; | base64)
-
-curl https://viki.sexycoders.org/api/data/storeMultiple \
-  -H &quot;Authorization: Bearer $token&quot; \
-  -H &quot;Content-Type: application/json&quot; \
-  -d &quot;$base64_body&quot;
-</code></pre>
-<p>Replace <code>&lt;database_name&gt;</code> with the name of the database, <code>&lt;collection_name&gt;</code> with the name of the collection, <code>&lt;field_name&gt;</code> with the actual field names in your data, and <code>&lt;value&gt;</code> with the corresponding values.</p>
-<p><strong>Note: The <code>/storeMultiple</code> endpoint expects the <code>data</code> field to be an array of objects.</strong></p>
-<h2 id="retrieving-data">Retrieving Data</h2>
-<p>To retrieve data from the database, send a POST request to the <code>/retrieveData</code> endpoint. Include the access token in the request header and specify the database, collection, and optional count or constraints in the request body. The example below demonstrates how to retrieve data:</p>
-<pre><code class="language-bash">body='{&quot;database&quot;:&quot;&lt;database_name&gt;&quot;,&quot;collection&quot;:&quot;&lt;collection_name&gt;&quot;,&quot;constraints&quot;:{&quot;&lt;field_name&gt;&quot;:&quot;&lt;value&gt;&quot;},&quot;count&quot;:&lt;count&gt;}'
-base64_body=$(echo -n &quot;$body&quot; | base64)
-
-curl https://viki.sexycoders.org/api/data/retrieveData \
-  -H &quot;Authorization: Bearer $token&quot; \
-  -H &quot;Content-Type: application/json&quot; \
-  -d &quot;$base64_body&quot;
-</code></pre>
-<p>Replace <code>&lt;database_name&gt;</code> with the name of the database, <code>&lt;collection_name&gt;</code> with the name of the collection, <code>&lt;field_name&gt;</code> with the actual field names in your data, <code>&lt;value&gt;</code> with the corresponding values, and <code>&lt;count&gt;</code> with the desired number of documents to retrieve (optional).</p>
-<h2 id="listing-collections">Listing Collections</h2>
-<p>To list collections in the database, send a POST request to the <code>/listCollections</code> endpoint. Include the access token in the request header and specify the database in the request body. The example below demonstrates how to list collections:</p>
-<pre><code class="language-bash">body='{&quot;database&quot;:&quot;&lt;database_name&gt;&quot;}'
-base64_body=$(echo -n &quot;$body&quot; | base64)
-
-curl https://viki.sexycoders.org/api/data/listCollections \
-  -H &quot;Authorization: Bearer $token&quot; \
-  -H &quot;Content-Type: application/json&quot; \
-  -d &quot;$base64_body&quot;
-</code></pre>
-<p>Replace <code>&lt;database_name&gt;</code> with the name of the database.</p>
-<hr />
-<p>Note: Make sure to replace the placeholders <code>&lt;client_id&gt;</code>, <code>&lt;client_secret&gt;</code>, <code>&lt;database_name&gt;</code>, <code>&lt;collection_name&gt;</code>, <code>&lt;field_name&gt;</code>, and <code>&lt;value&gt;</code> with the actual values specific to your setup.</p>
-<p>Remember to include the access token obtained through the authentication process in the request headers when interacting with the API.</p>
-<p>For further assistance or inquiries, please contact the API support team at support@example.com.</p></div>
+<h1 id="configuring-thunderbird-with-gpg">Configuring Thunderbird with GPG</h1>
+<p>This guide provides step-by-step instructions on integrating Thunderbird with GPG for secure email communication.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#configuring-thunderbird">Configuring Thunderbird</a></li>
+<li><a href="#additional-information">Additional Information</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Thunderbird installed.</li>
+<li>GnuPG installed.</li>
+</ul>
+<h2 id="configuring-thunderbird">Configuring Thunderbird</h2>
+<ol>
+<li>
+<p><strong>Open Thunderbird</strong>.</p>
+</li>
+<li>
+<p><strong>Access Configuration Editor</strong>:</p>
+</li>
+<li>
+<p>Navigate to: Thunderbird → Settings → General → Config Editor.</p>
+</li>
+<li>
+<p><strong>Enable External GnuPG</strong>:</p>
+</li>
+<li>Search for <code>mail.openpgp.allow_external_gnupg</code>.</li>
+<li>
+<p>Set its value to <code>true</code>.</p>
+</li>
+<li>
+<p><strong>Restart Thunderbird</strong> for the changes to take effect.</p>
+</li>
+</ol>
+<h2 id="additional-information">Additional Information</h2>
+<ul>
+<li>
+<p><strong>Direct Integration Limitation</strong>: Thunderbird does not directly utilize the existing GPG keyring for public keys. This is a design choice by Thunderbird. Users might have to maintain two databases with the same content, storing contacts' trusted keys and their level of trust.</p>
+</li>
+<li>
+<p><strong>Using GPG-Agent with Thunderbird</strong>: While direct integration is not possible, Thunderbird can be configured to use GnuPGP's <code>gpg-agent</code>. This allows Thunderbird to use the keys of GnuPGP. For more details, refer to the <a href="https://wiki.mozilla.org/Thunderbird:OpenPGP:Smartcards#Allow_the_use_of_external_GnuPG">Mozilla wiki page</a>. Note that the page primarily discusses smartcards, but the linked section is generic about using <code>gpg-agent</code> with Thunderbird.</p>
+</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://superuser.com/questions/1758464/how-do-i-get-thunderbird-to-use-my-gpg-keyring">SuperUser Discussion on Thunderbird and GPG Keyring</a></li>
+</ul></div>
             </div>
         </div>
 
