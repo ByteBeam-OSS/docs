@@ -1,0 +1,23 @@
+ByteBeam Documentation
+======================
+
+Welcome to the ByteBeam documentation repository! This repo contains
+all official guides, tutorials, API references, and FAQs for ByteBeam
+services and projects.
+
+Repository Structure
+- `docs/`: Markdown files for the documentation.
+- `assets/`: Media files like images and diagrams.
+- `mkdocs.yml`: MkDocs configuration file.
+
+How to View
+The documentation is hosted at https://docs.byte-beam.io.
+
+To preview it locally:
+1. Install MkDocs: pip install mkdocs
+2. Run the local server: mkdocs serve
+3. Open http://localhost:8000 in your browser.
+
+Contact
+For questions or suggestions, email us at help@byte-beam.io.
+
